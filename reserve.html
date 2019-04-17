@@ -1,63 +1,82 @@
-Jacob Vassas [7:22 PM]
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-       integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-   <title>Reserve</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <title>Reserve</title>
 </head>
 
 <body>
-   <div class="jumbotron">
-       <h1 class="text-center">Hot Restaurant</h1>
-       <hr class="my-4">
-       <h3 class="text-center">Make your reservation</h3>
-       <div class="text-center">
-           <a class="btn btn-primary btn-lg" href="tables.html" role="button">View Tables</a>
-           <a class="btn btn-primary btn-lg" href="home.html" role="button">Home</a>
-       </div>
-   </div>
-   <form>
-       <div class=row>
-           <div class="card col-lg-10 center">
-               <h3>
-                   Table Reservation
-               </h3>
-               <hr>
-               <div class="form-group">
-                   <label for="name">Name</label>
-                   <input type="password" class="form-control" id="name-input" placeholder="">
-               </div>
-               <div class="form-group">
-                   <label for="phone number">Phone Number</label>
-                   <input type="password" class="form-control" id="phone-number" placeholder="">
-               </div>
-               <div class="form-group">
-                   <label for="email">Email</label>
-                   <input type="email" class="form-control" id="email-input" placeholder="">
-               </div>
-               <div class="form-group">
-                   <label for="unique id">Unique ID</label>
-                   <input type="password" class="form-control" id="unique-id" placeholder="">
-               </div>
-               <button type="submit" class="btn btn-primary">Submit</button>
-           </div>
-       </div>
-   </form>
+    <div class="jumbotron">
+        <h1 class="text-center">Hot Restaurant</h1>
+        <hr class="my-4">
+        <h3 class="text-center">Make your reservation</h3>
+        <div class="text-center">
+            <a class="btn btn-primary btn-lg" href="tables.html" role="button">View Tables</a>
+            <a class="btn btn-primary btn-lg" href="home.html" role="button">Home</a>
+        </div>
+    </div>
+    <form>
+        <div class=row>
+            <div class="card col-lg-10 center">
+                <h3>
+                    Table Reservation
+                </h3>
+                <hr>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="reserve_name" placeholder="">
+                </div>
+                <div class="form-group">
+                    <label for="phone number">Phone Number</label>
+                    <input type="text" class="form-control" id="reserve_phone" placeholder="">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="reserve_email" placeholder="">
+                </div>
+                <div class="form-group">
+                    <label for="unique id">Unique ID</label>
+                    <input type="text" class="form-control" id="reserve_uniqueID" placeholder="">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </form>
 
-   <footer class="footer">
-           <div class="container">
-             <p><a href="#" id="clear">Clear Table</a> | <a href="/api/tables">API Table Link</a> | <a href="/api/waitlist">API Wait List</a>
-           </div>
-         </footer>
+    <footer class="footer">
+        <div class="container">
+            <p><a href="#" id="clear">Clear Table</a> | <a href="/api/tables">API Table Link</a> | <a href="/api/waitlist">API
+                    Wait List</a>
+        </div>
+    </footer>
 
-       </div>
+    </div>
+    <script type="text/javascript">
+
+        $(".submit").on("click", function() {
+            var newReservation = {
+                customerName:
+                $('#reserve_name').val().trim(),
+                phoneNumber:
+                $('#reserve_phone').val().trim(),
+                email:
+                $('#reserve_email').val().trim(),
+                uniqueID:
+                $('#reserve_uniqueID').val().trim(),
+
+            };
+                console.log(newReservation);
+        });
+    </script>
 
 
 </body>
