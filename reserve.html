@@ -75,6 +75,26 @@
 
             };
                 console.log(newReservation);
+
+                var currentURL = window.location.origin;
+
+                $.post(currentURL + "/api/tables", newReservation, function(data){
+
+                    if (data == true) {
+                        alert ("You're booked fam")
+                    }
+                    if (data == false) {
+                        alert("sorry, wait list")
+                    }
+
+                    $('#reserve_name').val("");
+                    $('#reserve_phone').val("");
+                    $('#reserve_email').val("");
+                    $('#reserve_uniqueID').val("");
+
+                });
+            
+            return false;
         });
     </script>
 
